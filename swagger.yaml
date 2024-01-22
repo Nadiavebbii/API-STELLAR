@@ -354,16 +354,16 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/InvalidOTPException'
+            $ref: '#/definitions/VerifikasKodeverifikasiberhasilditerimaiKlienOTP'
           examples:
             application/json:
-              success: false
-              error: InvalidOTPException
-              message: No query results for model [Modules\Transaksi\Entities\Klien].
+              success: true
+              error: null
+              message: Kode verifikasi berhasil diterima.
           headers:
             Date:
               type: string
-              default: Fri, 19 Jan 2024 13:40:31 GMT
+              default: Mon, 22 Jan 2024 08:58:55 GMT
             Transfer-Encoding:
               type: string
               default: chunked
@@ -378,7 +378,7 @@ paths:
               default: '60'
             X-RateLimit-Remaining:
               type: string
-              default: '58'
+              default: '59'
             Access-Control-Allow-Origin:
               type: string
               default: '*'
@@ -390,7 +390,7 @@ paths:
               default: DYNAMIC
             Report-To:
               type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Bb%2Fh1YgvJJzo%2BsTYLlNM1gvP1mhN4mGwtydPdkCd%2BOBrEDMWyLYiVOGEuz4LlooOk2CyAxgwaDqfhjZtDvQnbzS4Rl%2FsaWukMf84sq%2Fh%2BFYNdWRmlPBu1skYfjvR%2BJH7mCC8glzjyhTlV9J4"}],"group":"cf-nel","max_age":604800}'
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Mk%2BmlInbDo1%2FUbtcTjgMk8A%2Bxz9rYfr%2Bsos2i%2F4L1pOhIEOghYsrRjBWJpxVoP3zHCqvCMwF0Bzv48kq8DwPIkWL7JVYAuRkfpcsLDpWfljsrwpJp40uoaSs9H3rINjhXHVX7Gdc9NrBetlq"}],"group":"cf-nel","max_age":604800}'
             NEL:
               type: string
               default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
@@ -399,7 +399,7 @@ paths:
               default: cloudflare
             CF-RAY:
               type: string
-              default: 847f7d678fd90925-LAX
+              default: 8496990f2c66105b-HKG
             Content-Encoding:
               type: string
               default: br
@@ -433,16 +433,17 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Noqueryresults'
+            $ref: '#/definitions/Kodeverifikasiberhasildikirim'
           examples:
             application/json:
-              success: false
-              error: No query results for model [Modules\Transaksi\Entities\Klien]. on file /home/stellarhome/public_html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php on line number 527
-              message: Terdapat kesalahan saat menyimpan data, silahkan dicoba kembali beberapa saat lagi.
+              success: true
+              error: null
+              message: Kode verifikasi berhasil dikirim.
+              data: 2596
           headers:
             Date:
               type: string
-              default: Fri, 19 Jan 2024 13:42:07 GMT
+              default: Mon, 22 Jan 2024 08:59:28 GMT
             Transfer-Encoding:
               type: string
               default: chunked
@@ -457,7 +458,7 @@ paths:
               default: '60'
             X-RateLimit-Remaining:
               type: string
-              default: '59'
+              default: '58'
             Access-Control-Allow-Origin:
               type: string
               default: '*'
@@ -469,7 +470,7 @@ paths:
               default: DYNAMIC
             Report-To:
               type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=fvqFipF%2FHhA1xTUK%2FByoUCGB%2FiDOue6g4J8YZ5SCfm9wKG3tHAQercYU9yx3DjW1Wfeje9GGONtpgwoqoBv%2BRJo1DldxgimuQ0PpMFm9tB3TGUmjiFczm3b06mbDhohfdmNStJdtzq3nnOvz"}],"group":"cf-nel","max_age":604800}'
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=v6f1c%2ByMMkmxYxDfRwQg0xBkID%2B0GFlKZvACAKtIFrl10qJvpGv%2FNYiTJd4kcsj5v7kK%2FsDySPoa1pIA26cpmreIFYdlNGuhlvbADJVuWby5Wn7Pwn5oehw2KQGtv7kPaq5JpQPbu1C3aCYH"}],"group":"cf-nel","max_age":604800}'
             NEL:
               type: string
               default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
@@ -478,7 +479,7 @@ paths:
               default: cloudflare
             CF-RAY:
               type: string
-              default: 847f7fc12d530925-LAX
+              default: 849699c78a2a105b-HKG
             Content-Encoding:
               type: string
               default: br
@@ -3843,713 +3844,6 @@ paths:
               type: string
               default: h3=":443"; ma=86400
       security: []
-  /transaksi:
-    get:
-      description: http://epichome.id/admin/api/v1/mobile/transaksi/{sales_id}
-      summary: Data Transaksi
-      tags:
-        - Transaksi
-      operationId: DataTransaksi
-      deprecated: false
-      produces:
-        - application/json
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Dataretrieved.9'
-          examples:
-            application/json:
-              success: true
-              error: null
-              message: Data retrieved.
-              data:
-                current_page: 1
-                data: []
-                first_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi?page=1
-                from: null
-                last_page: 1
-                last_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi?page=1
-                links:
-                  - url: null
-                    label: '&laquo; Previous'
-                    active: false
-                  - url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi?page=1
-                    label: '1'
-                    active: true
-                  - url: null
-                    label: Next &raquo;
-                    active: false
-                next_page_url: null
-                path: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi
-                per_page: 15
-                prev_page_url: null
-                to: null
-                total: 0
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:41:32 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '59'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=vMugfbHfYBVQsToAe4bOpu3c3PBe89IH6he6pmFaW3slSk21%2FNM9w9WpFvOIBMtYIXMfzp2x9edAof1Xv7MzrYafn3JJWtyyTXhnB56ylGZv1bvgZIldo8YnWHwrjBo4gXFiyT8uBAPjReMn"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fd6cfb905079a-HKG
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
-  /transaksi/detail/1:
-    get:
-      description: http://epichome.id/admin/api/v1/mobile/transaksi/detail/{id}
-      summary: Detail Transaksi
-      tags:
-        - Transaksi
-      operationId: DetailTransaksi
-      deprecated: false
-      produces:
-        - application/json
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Nodataexist'
-          examples:
-            application/json:
-              success: false
-              error: Get data failed.
-              message: No data exist
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:42:29 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '57'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=1CUHdzMxWFQT7nJZQj9xXlazvMAxMRNkztK4Y7cqNUbTi0ThVJRlNL6oFzSvgbV9oEkDoQ6fBxbnJTtOo9Bc7Y7J6XGCU%2BMpM8npgjMXek%2FAoQYS7NCBxHGsZvcwpe7lNgbe1UEeQoOrxXC%2B"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fd836795d079a-HKG
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
-  /transaksi/tambah:
-    post:
-      summary: Tambah Transaksi
-      tags:
-        - Transaksi
-      operationId: TambahTransaksi
-      deprecated: false
-      produces:
-        - application/json
-      consumes:
-        - application/x-www-form-urlencoded
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-        - name: id_klien
-          in: formData
-          required: true
-          type: integer
-          format: int32
-          description: required|exist in klien
-        - name: id_unit
-          in: formData
-          required: true
-          type: integer
-          format: int32
-          description: required|exist in unit
-        - name: negoisasi_harga
-          in: formData
-          required: true
-          type: integer
-          format: int32
-          description: required|boolean
-        - name: booking_fee
-          in: formData
-          required: true
-          type: integer
-          format: int32
-          description: required|boolean
-        - name: cara_bayar
-          in: formData
-          required: true
-          type: string
-          description: required|exist in unit or proyek_primary
-        - name: deskripsi_pembayaran
-          in: formData
-          required: true
-          type: string
-          description: nullable
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Tryingtogetproperty%27id_proyek_primari%27'
-          examples:
-            application/json:
-              success: false
-              error: Trying to get property 'id_proyek_primari' of non-object on file /home/stellarhome/public_html/Modules/Api/Http/Controllers/Mobile/TransaksiController.php on line number 214
-              message: Terdapat kesalahan saat menyimpan data, silahkan dicoba kembali beberapa saat lagi.
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:40:28 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '58'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2FIdhb2ejeGQbzUcl36JVv8q02LTU9%2BFNo9NflNITyKVSf4qgv8mkOqM%2FlLnwM7%2B94FQJoFaJ6W9iAaiv1tEcMaXebT%2FgdYnF05vv8K3AT9VNKckr8gODhFOOZPVFuxvmtv3Qn6N%2BAIqn%2Fa3D"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fd53e5c1c079a-HKG
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
-  /transaksi/helper:
-    get:
-      summary: Transaksi Helper
-      tags:
-        - Transaksi
-      operationId: TransaksiHelper
-      deprecated: false
-      produces:
-        - application/json
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Dataretrieved.13'
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:43:21 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '59'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=IUWuHk2sipXURH4ntoA0w7DhYiC4N1PPCNJkptq7qV9D8M5S9UZ7BeU1Zz8Mmq0hvvKHjQ3uDOygtPIlO7CEp8KLYT2GjIJ69qreyvfdTGc%2FaRhfs6bhOwza6H4LpZWvDyv0PiQlIrD1myFB"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fd9760a6a079a-HKG
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
-  /transaksi/helper/client:
-    get:
-      summary: Transaksi Helper Client
-      tags:
-        - Transaksi
-      operationId: TransaksiHelperClient
-      deprecated: false
-      produces:
-        - application/json
-      parameters:
-        - name: paginate
-          in: query
-          required: true
-          type: integer
-          format: int32
-          description: ''
-        - name: search
-          in: query
-          required: true
-          type: string
-          description: ''
-        - name: transaction_type
-          in: query
-          required: true
-          type: string
-          description: required|in:Secondary, Project, Primary
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Dataretrieved.14'
-          examples:
-            application/json:
-              success: true
-              error: null
-              message: Data retrieved.
-              data:
-                current_page: 1
-                data:
-                  - nama_klien: Client Adi
-                    telepone: '+62878855115252'
-                    email: adi200@gmail.com
-                    nama_bank: BCA
-                    nomor_rekening: '3221102928'
-                    id: 45
-                    sales_own_id: '8'
-                    nama_sales: James
-                    tipe_sales: Sales Agent
-                    no_hp_sales: '+621234567890'
-                    email_sales: james@totalit.co.id
-                  - nama_klien: Client Adi
-                    telepone: '+62878855115252'
-                    email: adi200@gmail.com
-                    nama_bank: BCA
-                    nomor_rekening: '3221102928'
-                    id: 46
-                    sales_own_id: '8'
-                    nama_sales: James
-                    tipe_sales: Sales Agent
-                    no_hp_sales: '+621234567890'
-                    email_sales: james@totalit.co.id
-                  - nama_klien: Client Adi
-                    telepone: '+62878855115252'
-                    email: adi200@gmail.com
-                    nama_bank: BCA
-                    nomor_rekening: '3221102928'
-                    id: 47
-                    sales_own_id: '8'
-                    nama_sales: James
-                    tipe_sales: Sales Agent
-                    no_hp_sales: '+621234567890'
-                    email_sales: james@totalit.co.id
-                first_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-                from: 1
-                last_page: 1
-                last_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-                links:
-                  - url: null
-                    label: '&laquo; Previous'
-                    active: false
-                  - url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-                    label: '1'
-                    active: true
-                  - url: null
-                    label: Next &raquo;
-                    active: false
-                next_page_url: null
-                path: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client
-                per_page: 10
-                prev_page_url: null
-                to: 3
-                total: 3
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:44:26 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '59'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=R2OGLJxduOVR00fivqznpah8ljipbeT3UhyObtVl2gXk9GiX3TXUUjUr2QgB8IqaTVedqxo4nVqYDoWGdwcr0I1Od6Phfj7l2VfynKv7uZyU1QJZF5qPrIkk%2BCqLAc%2FrLgicSowFHpnwBI2H"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fdb0bed39079a-HKG
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
-  /transaksi/helper/project:
-    get:
-      summary: Transaksi Helper Project
-      tags:
-        - Transaksi
-      operationId: TransaksiHelperProject
-      deprecated: false
-      produces:
-        - application/json
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Dataretrieved.15'
-          examples:
-            application/json:
-              success: true
-              error: null
-              message: Data retrieved.
-              data: []
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:44:47 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '58'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=C9jnRT1GrzRqZ5WhsiuufzijYxIOckXIPOFYZ5gNDDwXnqyKo3cAU%2F8CYlXUEhxuJ8g8LUajNfs%2B4o5kuPf8K3gIj2h%2BUNZsDgW%2BFki1mVx0D2kf3nrvPSM7kxe%2Bk3c7drpCmhKxYnc2rymY"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fdb8dbf650fe5-LAX
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
-  /transaksi/helper/primary:
-    get:
-      summary: Transaksi Helper Primary
-      tags:
-        - Transaksi
-      operationId: TransaksiHelperPrimary
-      deprecated: false
-      produces:
-        - application/json
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Dataretrieved.15'
-          examples:
-            application/json:
-              success: true
-              error: null
-              message: Data retrieved.
-              data: []
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:45:13 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '57'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Rn08KWCwSBR1hV56A8HPgHCrOWziK6Rbsg7TOAQVfIki0k%2BBGysK1n%2Fp1oNzv6BNWbN8eFYwOm%2Fl%2FMuJFPW5wEt59bs4XlZSutKQDPcQ5gQ23o5%2FvUgzsRh9ZQLxlCsdEyNzt%2B%2FBeWMST9xh"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fdc325ed90fe5-LAX
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
-  /transaksi/helper/secondary-unit:
-    get:
-      summary: Transaksi Helper Secondary Unit
-      tags:
-        - Transaksi
-      operationId: TransaksiHelperSecondaryUnit
-      deprecated: false
-      produces:
-        - application/json
-      parameters:
-        - name: Accept
-          in: header
-          required: true
-          type: string
-          description: ''
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Dataretrieved.15'
-          examples:
-            application/json:
-              success: true
-              error: null
-              message: Data retrieved.
-              data: []
-          headers:
-            Date:
-              type: string
-              default: Fri, 19 Jan 2024 14:45:40 GMT
-            Transfer-Encoding:
-              type: string
-              default: chunked
-            Connection:
-              type: string
-              default: keep-alive
-            Cache-Control:
-              type: string
-              default: no-cache, private
-            X-RateLimit-Limit:
-              type: string
-              default: '60'
-            X-RateLimit-Remaining:
-              type: string
-              default: '59'
-            Access-Control-Allow-Origin:
-              type: string
-              default: '*'
-            Vary:
-              type: string
-              default: Authorization
-            CF-Cache-Status:
-              type: string
-              default: DYNAMIC
-            Report-To:
-              type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=paNLuEvV%2FlGHUrzgFxuLT%2F7yLY%2FpGOlSbFZvz4EQ8TwQ0%2BQbSID4C2ei0BkrJdY5XzecBU5%2B%2Fs1471wuwYeXCPcQ%2B00oJf%2FXQHK2Cs2XmA6kkvWF%2FGOG0BSFKm8XFInyaz7lyQaqv0mP%2B0oH"}],"group":"cf-nel","max_age":604800}'
-            NEL:
-              type: string
-              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-            Server:
-              type: string
-              default: cloudflare
-            CF-RAY:
-              type: string
-              default: 847fdcde5ca0079a-HKG
-            Content-Encoding:
-              type: string
-              default: br
-            alt-svc:
-              type: string
-              default: h3=":443"; ma=86400
-      security: []
   /province:
     get:
       summary: Get Province
@@ -4569,7 +3863,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved.15'
+            $ref: '#/definitions/Dataretrieved.12'
           examples:
             application/json:
               success: true
@@ -4681,7 +3975,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved.15'
+            $ref: '#/definitions/Dataretrieved.12'
           examples:
             application/json:
               success: true
@@ -4786,7 +4080,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved.15'
+            $ref: '#/definitions/Dataretrieved.12'
           examples:
             application/json:
               success: true
@@ -5464,7 +4758,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved.21'
+            $ref: '#/definitions/Dataretrieved.15'
           examples:
             application/json:
               success: true
@@ -6027,7 +5321,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved.22'
+            $ref: '#/definitions/Dataretrieved.16'
           headers:
             Date:
               type: string
@@ -6094,7 +5388,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved23'
+            $ref: '#/definitions/Dataretrieved17'
           examples:
             application/json:
               success: true
@@ -6241,7 +5535,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved24'
+            $ref: '#/definitions/Dataretrieved18'
           examples:
             application/json:
               success: true
@@ -6378,7 +5672,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved25'
+            $ref: '#/definitions/Dataretrieved19'
           examples:
             application/json:
               success: true
@@ -6457,7 +5751,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved26'
+            $ref: '#/definitions/Dataretrieved20'
           examples:
             application/json:
               success: true
@@ -7346,6 +6640,165 @@ paths:
           type: string
           description: ''
       responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DataRetrieved21'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Data retrieved.
+              data:
+                klien:
+                  - slug: andre
+                    nama_klien: Andre
+                    sales_id: '25'
+                    sales_type: Sales Agent
+                    telepone: '+62893211939213'
+                    email: Andre@gmail.com
+                    catatan: null
+                    nama_bank: B.P.D. JAWA TENGAH
+                    nomor_rekening: '454353543543'
+                    created_at: '2023-11-29T03:24:54.000000Z'
+                    updated_at: '2023-12-11T04:36:52.000000Z'
+                    id: 41
+                    is_verified: 1
+                    kode_otp: null
+                proyek_primary:
+                  - id: 70
+                    slug: rusun-bambu
+                    status_unit: Jual
+                    nama_proyek: Rusun Bambu
+                    harga_awal: 0
+                    nama_developer: Ciputra Group
+                    nama_tipe_bangunan: Rumah Susun
+                    jumlah_unit: 8
+                secondary_unit:
+                  - id: 73
+                    slug: town-house-ciputat
+                    harga_unit: 0
+                    status_unit: Sewa
+                    nama_unit: Town House Ciputat
+                    nama_tipe_bangunan: Town House
+                status:
+                  - id: 1
+                    slug: tidak-pernah-diangkat
+                    status: Tidak Pernah Diangkat
+                    kategori_status: Dropped
+                    icon: dropped-icon.png
+                    created_at: '2023-07-31T03:55:36.000000Z'
+                    updated_at: '2023-07-31T03:55:36.000000Z'
+                    deleted_at: null
+                  - id: 2
+                    slug: nomor-diblokir
+                    status: Nomor Diblokir
+                    kategori_status: Dropped
+                    icon: dropped-icon.png
+                    created_at: '2023-07-31T03:56:00.000000Z'
+                    updated_at: '2023-07-31T03:56:00.000000Z'
+                    deleted_at: null
+                  - id: 3
+                    slug: batal-beli-rumah
+                    status: Batal Beli Rumah
+                    kategori_status: Dropped
+                    icon: dropped-icon.png
+                    created_at: '2023-07-31T03:56:27.000000Z'
+                    updated_at: '2023-07-31T03:56:27.000000Z'
+                    deleted_at: null
+                  - id: 4
+                    slug: kpr-ditolak
+                    status: KPR Ditolak
+                    kategori_status: Dropped
+                    icon: dropped-icon.png
+                    created_at: '2023-07-31T03:56:45.000000Z'
+                    updated_at: '2023-07-31T03:56:45.000000Z'
+                    deleted_at: null
+                  - id: 5
+                    slug: di-luar-kota
+                    status: Di Luar Kota
+                    kategori_status: Pending First Action
+                    icon: pending-icon.png
+                    created_at: '2023-07-31T04:17:47.000000Z'
+                    updated_at: '2023-07-31T04:17:47.000000Z'
+                    deleted_at: null
+                  - id: 6
+                    slug: keadaan-berduka
+                    status: Keadaan Berduka
+                    kategori_status: Pending First Action
+                    icon: pending-icon.png
+                    created_at: '2023-07-31T04:18:08.000000Z'
+                    updated_at: '2023-07-31T04:18:08.000000Z'
+                    deleted_at: null
+                  - id: 7
+                    slug: butuh-waktu-lebih
+                    status: Butuh Waktu Lebih
+                    kategori_status: Pending First Action
+                    icon: pending-icon.png
+                    created_at: '2023-07-31T04:18:37.000000Z'
+                    updated_at: '2023-07-31T04:18:37.000000Z'
+                    deleted_at: null
+                  - id: 8
+                    slug: dana-belum-terkumpul
+                    status: Dana Belum Terkumpul
+                    kategori_status: Pending First Action
+                    icon: pending-icon.png
+                    created_at: '2023-07-31T04:19:14.000000Z'
+                    updated_at: '2023-10-17T06:54:53.000000Z'
+                    deleted_at: null
+                sumber:
+                  - id: 1
+                    slug: sumber
+                    sumber: Website Stellar
+                    created_at: '2023-08-09T02:40:31.000000Z'
+                    updated_at: '2023-09-17T22:39:30.000000Z'
+                    deleted_at: null
+          headers:
+            Date:
+              type: string
+              default: Mon, 22 Jan 2024 08:42:52 GMT
+            Transfer-Encoding:
+              type: string
+              default: chunked
+            Connection:
+              type: string
+              default: keep-alive
+            Cache-Control:
+              type: string
+              default: no-cache, private
+            X-RateLimit-Limit:
+              type: string
+              default: '60'
+            X-RateLimit-Remaining:
+              type: string
+              default: '58'
+            Access-Control-Allow-Origin:
+              type: string
+              default: '*'
+            Vary:
+              type: string
+              default: Authorization
+            CF-Cache-Status:
+              type: string
+              default: DYNAMIC
+            Report-To:
+              type: string
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=9MBnqQtFCijGOUNHq56UP4bl%2BVx9ytZykp%2FT0W0Ts9O6DfmBKYijeJgN2qNZ0n8CRF9tUQ4vJi38AEypDWjBlUX4zXJNcIgyLLmF2O7os1Ag02reP3%2Fk4D83YSV4up0BDgIDPW6jdx%2Fdql1o"}],"group":"cf-nel","max_age":604800}'
+            NEL:
+              type: string
+              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+            Server:
+              type: string
+              default: cloudflare
+            CF-RAY:
+              type: string
+              default: 8496818d3dc21099-HKG
+            Content-Encoding:
+              type: string
+              default: br
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=86400
         '500':
           description: Internal Server Error
           schema:
@@ -7756,7 +7209,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved.28'
+            $ref: '#/definitions/Dataretrieved.23'
           examples:
             application/json:
               success: true
@@ -8292,7 +7745,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Dataretrieved.29'
+            $ref: '#/definitions/Dataretrieved.24'
           examples:
             application/json:
               success: true
@@ -9239,6 +8692,24 @@ definitions:
       - nama_klien
       - email
       - nomor_hp
+  VerifikasKodeverifikasiberhasilditerimaiKlienOTP:
+    title: VerifikasKodeverifikasiberhasilditerimaiKlienOTP
+    example:
+      success: true
+      error: null
+      message: Kode verifikasi berhasil diterima.
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+    required:
+      - success
+      - error
+      - message
   InvalidOTPException:
     title: InvalidOTPException
     example:
@@ -9257,12 +8728,13 @@ definitions:
       - success
       - error
       - message
-  Kodeverifikasiberhasilditerima:
-    title: Kodeverifikasiberhasilditerima
+  Kodeverifikasiberhasildikirim:
+    title: Kodeverifikasiberhasildikirim
     example:
       success: true
       error: null
-      message: Kode verifikasi berhasil diterima.
+      message: Kode verifikasi berhasil dikirim.
+      data: 2596
     type: object
     properties:
       success:
@@ -9271,10 +8743,14 @@ definitions:
         type: string
       message:
         type: string
+      data:
+        type: integer
+        format: int32
     required:
       - success
       - error
       - message
+      - data
   Noqueryresults:
     title: Noqueryresults
     example:
@@ -9293,29 +8769,6 @@ definitions:
       - success
       - error
       - message
-  Kodeverifikasiberhasilditerima1:
-    title: Kodeverifikasiberhasilditerima1
-    example:
-      success: true
-      error: null
-      message: Kode verifikasi berhasil dikirim.
-      data: 7164
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-      data:
-        type: integer
-        format: int32
-    required:
-      - success
-      - error
-      - message
-      - data
   Dataretrieved1:
     title: Dataretrieved1
     example:
@@ -18681,535 +18134,47 @@ definitions:
       - luas_tanah
       - luas_bangunan
       - proyek_primary
-  Tryingtogetproperty'id_proyek_primari':
-    title: Tryingtogetproperty'id_proyek_primari'
-    example:
-      success: false
-      error: Trying to get property 'id_proyek_primari' of non-object on file /home/stellarhome/public_html/Modules/Api/Http/Controllers/Mobile/TransaksiController.php on line number 214
-      message: Terdapat kesalahan saat menyimpan data, silahkan dicoba kembali beberapa saat lagi.
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-    required:
-      - success
-      - error
-      - message
-  Dataretrieved.13:
-    title: Dataretrieved.13
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-      data:
-        $ref: '#/definitions/Data30'
-    required:
-      - success
-      - error
-      - message
-      - data
-  Data30:
-    title: Data30
-    type: object
-    properties:
-      sales:
-        $ref: '#/definitions/Sales'
-      tipe_program:
-        type: array
-        items:
-          $ref: '#/definitions/TipeProgram'
-      bank:
-        type: array
-        items:
-          type: string
-      cara_pembayaran:
-        type: array
-        items:
-          type: string
-    required:
-      - sales
-      - tipe_program
-      - bank
-      - cara_pembayaran
-  Sales:
-    title: Sales
-    example:
-      id: 8
-      nama: James
-      email: james@totalit.co.id
-      no_hp: '+621234567890'
-      tipe_sales: Sales Agent
-      tipe_agent: Agent Property
-      nama_kontak_darurat: null
-      no_kontak_darurat: null
-      team_leader_id: null
-      nama_team_leader: null
-      principal_id: 1
-      nama_principal: Ary Prasetyo
-      spv_id: null
-      nama_spv: null
-      sales_manager_id: null
-      nama_sales_manager: null
-      pic_id: null
-      nama_pic: null
-      komisi_sales: '70'
-      komisi_kantor: '30'
-      sub_agent:
-        id: 1
-        nama_agent_property: Stellar Indonesia
-        jenis_agent: Head Office
-        head_office_id: null
-        tipe_agent: Eksternal
-        royalty_fee: '0'
-        komisi_principal: '50'
-        komisi_tl: '40'
-        komisi_kantor: '10'
-        komisi_pic: '20'
-        komisi_sales_manager: '30'
-        komisi_spv: '40'
-        komisi_kantor_inhouse: '10'
-        komisi_or_kantor: '40'
-        komisi_or_direksi: '60'
-        komisi_or_kantor_inhouse: '40'
-        komisi_or_direksi_inhouse: '60'
-        nama_head_office: null
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int32
-      nama:
-        type: string
-      email:
-        type: string
-      no_hp:
-        type: string
-      tipe_sales:
-        type: string
-      tipe_agent:
-        type: string
-      nama_kontak_darurat:
-        type: string
-      no_kontak_darurat:
-        type: string
-      team_leader_id:
-        type: string
-      nama_team_leader:
-        type: string
-      principal_id:
-        type: integer
-        format: int32
-      nama_principal:
-        type: string
-      spv_id:
-        type: string
-      nama_spv:
-        type: string
-      sales_manager_id:
-        type: string
-      nama_sales_manager:
-        type: string
-      pic_id:
-        type: string
-      nama_pic:
-        type: string
-      komisi_sales:
-        type: string
-      komisi_kantor:
-        type: string
-      sub_agent:
-        $ref: '#/definitions/SubAgent'
-    required:
-      - id
-      - nama
-      - email
-      - no_hp
-      - tipe_sales
-      - tipe_agent
-      - nama_kontak_darurat
-      - no_kontak_darurat
-      - team_leader_id
-      - nama_team_leader
-      - principal_id
-      - nama_principal
-      - spv_id
-      - nama_spv
-      - sales_manager_id
-      - nama_sales_manager
-      - pic_id
-      - nama_pic
-      - komisi_sales
-      - komisi_kantor
-      - sub_agent
-  SubAgent:
-    title: SubAgent
-    example:
-      id: 1
-      nama_agent_property: Stellar Indonesia
-      jenis_agent: Head Office
-      head_office_id: null
-      tipe_agent: Eksternal
-      royalty_fee: '0'
-      komisi_principal: '50'
-      komisi_tl: '40'
-      komisi_kantor: '10'
-      komisi_pic: '20'
-      komisi_sales_manager: '30'
-      komisi_spv: '40'
-      komisi_kantor_inhouse: '10'
-      komisi_or_kantor: '40'
-      komisi_or_direksi: '60'
-      komisi_or_kantor_inhouse: '40'
-      komisi_or_direksi_inhouse: '60'
-      nama_head_office: null
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int32
-      nama_agent_property:
-        type: string
-      jenis_agent:
-        type: string
-      head_office_id:
-        type: string
-      tipe_agent:
-        type: string
-      royalty_fee:
-        type: string
-      komisi_principal:
-        type: string
-      komisi_tl:
-        type: string
-      komisi_kantor:
-        type: string
-      komisi_pic:
-        type: string
-      komisi_sales_manager:
-        type: string
-      komisi_spv:
-        type: string
-      komisi_kantor_inhouse:
-        type: string
-      komisi_or_kantor:
-        type: string
-      komisi_or_direksi:
-        type: string
-      komisi_or_kantor_inhouse:
-        type: string
-      komisi_or_direksi_inhouse:
-        type: string
-      nama_head_office:
-        type: string
-    required:
-      - id
-      - nama_agent_property
-      - jenis_agent
-      - head_office_id
-      - tipe_agent
-      - royalty_fee
-      - komisi_principal
-      - komisi_tl
-      - komisi_kantor
-      - komisi_pic
-      - komisi_sales_manager
-      - komisi_spv
-      - komisi_kantor_inhouse
-      - komisi_or_kantor
-      - komisi_or_direksi
-      - komisi_or_kantor_inhouse
-      - komisi_or_direksi_inhouse
-      - nama_head_office
-  TipeProgram:
-    title: TipeProgram
-    example:
-      id: 1
-      slug: program-lebaran
-      nama_program: Program Lebaran
-      harga_termasuk:
-        - Rumah
-        - Furnish
-      harga_tidak_termasuk:
-        - Iuran Bulanan
-        - Iuran Kebersihan
-      gimmick:
-        - Free Fasilitas Gym
-      keterangan: <p>Program Lebaran</p>
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int32
-      slug:
-        type: string
-      nama_program:
-        type: string
-      harga_termasuk: {}
-      harga_tidak_termasuk: {}
-      gimmick: {}
-      keterangan:
-        type: string
-    required:
-      - id
-      - slug
-      - nama_program
-      - harga_termasuk
-      - harga_tidak_termasuk
-      - gimmick
-      - keterangan
-  Dataretrieved.14:
-    title: Dataretrieved.14
+  Dataretrieved.12:
+    title: Dataretrieved.12
     example:
       success: true
       error: null
       message: Data retrieved.
       data:
-        current_page: 1
-        data:
-          - nama_klien: Client Adi
-            telepone: '+62878855115252'
-            email: adi200@gmail.com
-            nama_bank: BCA
-            nomor_rekening: '3221102928'
-            id: 45
-            sales_own_id: '8'
-            nama_sales: James
-            tipe_sales: Sales Agent
-            no_hp_sales: '+621234567890'
-            email_sales: james@totalit.co.id
-          - nama_klien: Client Adi
-            telepone: '+62878855115252'
-            email: adi200@gmail.com
-            nama_bank: BCA
-            nomor_rekening: '3221102928'
-            id: 46
-            sales_own_id: '8'
-            nama_sales: James
-            tipe_sales: Sales Agent
-            no_hp_sales: '+621234567890'
-            email_sales: james@totalit.co.id
-          - nama_klien: Client Adi
-            telepone: '+62878855115252'
-            email: adi200@gmail.com
-            nama_bank: BCA
-            nomor_rekening: '3221102928'
-            id: 47
-            sales_own_id: '8'
-            nama_sales: James
-            tipe_sales: Sales Agent
-            no_hp_sales: '+621234567890'
-            email_sales: james@totalit.co.id
-        first_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-        from: 1
-        last_page: 1
-        last_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-        links:
-          - url: null
-            label: '&laquo; Previous'
-            active: false
-          - url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-            label: '1'
-            active: true
-          - url: null
-            label: Next &raquo;
-            active: false
-        next_page_url: null
-        path: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client
-        per_page: 10
-        prev_page_url: null
-        to: 3
-        total: 3
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-      data:
-        $ref: '#/definitions/Data31'
-    required:
-      - success
-      - error
-      - message
-      - data
-  Data31:
-    title: Data31
-    example:
-      current_page: 1
-      data:
-        - nama_klien: Client Adi
-          telepone: '+62878855115252'
-          email: adi200@gmail.com
-          nama_bank: BCA
-          nomor_rekening: '3221102928'
-          id: 45
-          sales_own_id: '8'
-          nama_sales: James
-          tipe_sales: Sales Agent
-          no_hp_sales: '+621234567890'
-          email_sales: james@totalit.co.id
-        - nama_klien: Client Adi
-          telepone: '+62878855115252'
-          email: adi200@gmail.com
-          nama_bank: BCA
-          nomor_rekening: '3221102928'
-          id: 46
-          sales_own_id: '8'
-          nama_sales: James
-          tipe_sales: Sales Agent
-          no_hp_sales: '+621234567890'
-          email_sales: james@totalit.co.id
-        - nama_klien: Client Adi
-          telepone: '+62878855115252'
-          email: adi200@gmail.com
-          nama_bank: BCA
-          nomor_rekening: '3221102928'
-          id: 47
-          sales_own_id: '8'
-          nama_sales: James
-          tipe_sales: Sales Agent
-          no_hp_sales: '+621234567890'
-          email_sales: james@totalit.co.id
-      first_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-      from: 1
-      last_page: 1
-      last_page_url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-      links:
-        - url: null
-          label: '&laquo; Previous'
-          active: false
-        - url: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client?page=1
-          label: '1'
-          active: true
-        - url: null
-          label: Next &raquo;
-          active: false
-      next_page_url: null
-      path: https://stellarhome.totalit.co.id/api/v1/mobile/transaksi/helper/client
-      per_page: 10
-      prev_page_url: null
-      to: 3
-      total: 3
-    type: object
-    properties:
-      current_page:
-        type: integer
-        format: int32
-      data:
-        type: array
-        items:
-          $ref: '#/definitions/Data32'
-      first_page_url:
-        type: string
-      from:
-        type: integer
-        format: int32
-      last_page:
-        type: integer
-        format: int32
-      last_page_url:
-        type: string
-      links:
-        type: array
-        items:
-          $ref: '#/definitions/Link'
-      next_page_url:
-        type: string
-      path:
-        type: string
-      per_page:
-        type: integer
-        format: int32
-      prev_page_url:
-        type: string
-      to:
-        type: integer
-        format: int32
-      total:
-        type: integer
-        format: int32
-    required:
-      - current_page
-      - data
-      - first_page_url
-      - from
-      - last_page
-      - last_page_url
-      - links
-      - next_page_url
-      - path
-      - per_page
-      - prev_page_url
-      - to
-      - total
-  Data32:
-    title: Data32
-    example:
-      nama_klien: Client Adi
-      telepone: '+62878855115252'
-      email: adi200@gmail.com
-      nama_bank: BCA
-      nomor_rekening: '3221102928'
-      id: 45
-      sales_own_id: '8'
-      nama_sales: James
-      tipe_sales: Sales Agent
-      no_hp_sales: '+621234567890'
-      email_sales: james@totalit.co.id
-    type: object
-    properties:
-      nama_klien:
-        type: string
-      telepone:
-        type: string
-      email:
-        type: string
-      nama_bank:
-        type: string
-      nomor_rekening:
-        type: string
-      id:
-        type: integer
-        format: int32
-      sales_own_id:
-        type: string
-      nama_sales:
-        type: string
-      tipe_sales:
-        type: string
-      no_hp_sales:
-        type: string
-      email_sales:
-        type: string
-    required:
-      - nama_klien
-      - telepone
-      - email
-      - nama_bank
-      - nomor_rekening
-      - id
-      - sales_own_id
-      - nama_sales
-      - tipe_sales
-      - no_hp_sales
-      - email_sales
-  Dataretrieved.15:
-    title: Dataretrieved.15
-    example:
-      success: true
-      error: null
-      message: Data retrieved.
-      data: []
+        - ACEH
+        - SUMATERA UTARA
+        - SUMATERA BARAT
+        - RIAU
+        - JAMBI
+        - SUMATERA SELATAN
+        - BENGKULU
+        - LAMPUNG
+        - KEPULAUAN BANGKA BELITUNG
+        - KEPULAUAN RIAU
+        - DKI JAKARTA
+        - JAWA BARAT
+        - JAWA TENGAH
+        - DI YOGYAKARTA
+        - JAWA TIMUR
+        - BANTEN
+        - BALI
+        - NUSA TENGGARA BARAT
+        - NUSA TENGGARA TIMUR
+        - KALIMANTAN BARAT
+        - KALIMANTAN TENGAH
+        - KALIMANTAN SELATAN
+        - KALIMANTAN TIMUR
+        - KALIMANTAN UTARA
+        - SULAWESI UTARA
+        - SULAWESI TENGAH
+        - SULAWESI SELATAN
+        - SULAWESI TENGGARA
+        - GORONTALO
+        - SULAWESI BARAT
+        - MALUKU
+        - MALUKU UTARA
+        - PAPUA BARAT
+        - PAPUA
     type: object
     properties:
       success:
@@ -19331,29 +18296,6 @@ definitions:
       - success
       - error
       - message
-  Kodeverifikasiberhasildikirim:
-    title: Kodeverifikasiberhasildikirim
-    example:
-      success: true
-      error: null
-      message: Kode verifikasi berhasil dikirim.
-      data: 3969
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-      data:
-        type: integer
-        format: int32
-    required:
-      - success
-      - error
-      - message
-      - data
   nomorhpisinvalid.1:
     title: nomorhpisinvalid.1
     example:
@@ -19374,8 +18316,8 @@ definitions:
       - success
       - error
       - message
-  KodeVerifikasiberhasilditerima2:
-    title: KodeVerifikasiberhasilditerima2
+  KodeVerifikasiberhasilditerima:
+    title: KodeVerifikasiberhasilditerima
     example:
       success: true
       error: null
@@ -19393,14 +18335,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data33'
+        $ref: '#/definitions/Data29'
     required:
       - success
       - error
       - message
       - data
-  Data33:
-    title: Data33
+  Data29:
+    title: Data29
     example:
       token_type: Bearer
       access_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI1IiwianRpIjoiNTJmMGY1Y2Q1NDBkZDViNzc1M2UyMTc3MzQxN2JkZDM1NjhlMDQyY2JkYThkNzY2ZjdiY2E4MDdlMTIyMTY4ZTZlYmQwN2ZjNjZmYmI4YzYiLCJpYXQiOjE3MDU4OTY2MzcuNjY4MDE4MTAyNjQ1ODc0MDIzNDM3NSwibmJmIjoxNzA1ODk2NjM3LjY2ODAyMzEwOTQzNjAzNTE1NjI1LCJleHAiOjE3MjE2MjE0MzcuNjYxMjI2MDM0MTY0NDI4NzEwOTM3NSwic3ViIjoiNzQiLCJzY29wZXMiOltdfQ.RDUPWrBnYzBk31DXeg1GZqav4sGvBJ97bMTTpintjK2m2VyPnmGRZNTdQLS8UpCA2GhW1WnwxENtB-9N44RVT-oBJTVdlFbn-VHdQANKdeLlkJq0xdsQEQFDj3om-euJ9WxugJvDi2hRIKDt0JTXUHKWIfL9k37N8DENwSg0J1xoAF6zuW8gVnwB2XiF-AUlWfxq93-AhUYNaVqQiYhDC_VcgbtEOd6pG-jpex5ys0Ya_9bx0jybuQcBf_0vUBmjCBxl-lSPpuNm_6tMXhjEGkRJUEyuJE2zUNEZ01n5MB1CBl3y75JASI1vlxdb3bANEhzfWFL8F_Ts9EO1mfV6dSJTLhT_lBCl3_9xklkybFniEaPCESgetzVU12StRJ8TVlHKfus_wiggkazkw5qLL7lBogA3zt7fsh3fUnUxHpjxCMSgyUwW253Ingpyo0K_D6BF_AxnldSospl5OnFgzfiiENd5U481Lu7gCd5GiM0sELSrp_HwfnnLwO2biquSG5YXl9il6UtAtVCOLlcAITGd9VD53L0_SM8M5k1SwVaPk2UGm7xAHFH3T93EAOxdT9ySZyDk5wwk5W98XsNVMlAQW81WtCvF7CksoPZ4iOk6KTSGaYXADVboIGD3RbczJ6Mx2gAKO3rgmkjuXYZVUGHUz3OyCRDnqufaO59UpkM
@@ -19443,14 +18385,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data34'
+        $ref: '#/definitions/Data30'
     required:
       - success
       - error
       - message
       - data
-  Data34:
-    title: Data34
+  Data30:
+    title: Data30
     example:
       id: 8
       user_id: 12
@@ -19571,14 +18513,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data35'
+        $ref: '#/definitions/Data31'
     required:
       - success
       - error
       - message
       - data
-  Data35:
-    title: Data35
+  Data31:
+    title: Data31
     example:
       id: 8
       user_id: 12
@@ -19625,8 +18567,8 @@ definitions:
       - access_token
       - expires_at
       - device_token
-  KodeVerifikasiberhasilditerima3:
-    title: KodeVerifikasiberhasilditerima3
+  KodeVerifikasiberhasilditerima1:
+    title: KodeVerifikasiberhasilditerima1
     example:
       success: true
       error: null
@@ -19650,14 +18592,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data36'
+        $ref: '#/definitions/Data32'
     required:
       - success
       - error
       - message
       - data
-  Data36:
-    title: Data36
+  Data32:
+    title: Data32
     example:
       id: 8
       nama: Adul
@@ -19717,8 +18659,8 @@ definitions:
       - success
       - error
       - message
-  Dataretrieved.21:
-    title: Dataretrieved.21
+  Dataretrieved.15:
+    title: Dataretrieved.15
     example:
       success: true
       error: null
@@ -19763,14 +18705,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data37'
+        $ref: '#/definitions/Data33'
     required:
       - success
       - error
       - message
       - data
-  Data37:
-    title: Data37
+  Data33:
+    title: Data33
     example:
       jenis_kelamin_option:
         - Laki-laki
@@ -19945,14 +18887,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data38'
+        $ref: '#/definitions/Data34'
     required:
       - success
       - error
       - message
       - data
-  Data38:
-    title: Data38
+  Data34:
+    title: Data34
     example:
       id: 8
       id_user: 12
@@ -20169,7 +19111,7 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data38'
+        $ref: '#/definitions/Data34'
     required:
       - success
       - error
@@ -20229,7 +19171,7 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data38'
+        $ref: '#/definitions/Data34'
     required:
       - success
       - error
@@ -20289,7 +19231,7 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data38'
+        $ref: '#/definitions/Data34'
     required:
       - success
       - error
@@ -20366,14 +19308,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data42'
+        $ref: '#/definitions/Data38'
     required:
       - success
       - error
       - message
       - data
-  Data42:
-    title: Data42
+  Data38:
+    title: Data38
     example:
       id: 12
       slug: james-621234567890
@@ -20466,7 +19408,7 @@ definitions:
       device_token:
         type: string
       sales:
-        $ref: '#/definitions/Sales1'
+        $ref: '#/definitions/Sales'
     required:
       - id
       - slug
@@ -20485,8 +19427,8 @@ definitions:
       - kode_otp
       - device_token
       - sales
-  Sales1:
-    title: Sales1
+  Sales:
+    title: Sales
     example:
       id: 8
       id_user: 12
@@ -20813,8 +19755,8 @@ definitions:
           type: string
     required:
       - kecamatan
-  noNPWP:
-    title: noNPWP
+  noNPWPempty:
+    title: noNPWPempty
     example:
       success: false
       error:
@@ -20846,8 +19788,8 @@ definitions:
           type: string
     required:
       - no_npwp
-  fotoktp:
-    title: fotoktp
+  fotoktpempty:
+    title: fotoktpempty
     example:
       success: false
       error:
@@ -20879,8 +19821,8 @@ definitions:
           type: string
     required:
       - image_foto_ktp
-  fotoselfie:
-    title: fotoselfie
+  fotoselfieempty:
+    title: fotoselfieempty
     example:
       success: false
       error:
@@ -20912,8 +19854,8 @@ definitions:
           type: string
     required:
       - image_foto_selfie
-  Dataretrieved.22:
-    title: Dataretrieved.22
+  Dataretrieved.16:
+    title: Dataretrieved.16
     type: object
     properties:
       tipe_agent:
@@ -21023,8 +19965,8 @@ definitions:
       - komisi_khusus_direksi_inhouse
       - created_at
       - updated_at
-  Dataretrieved23:
-    title: Dataretrieved23
+  Dataretrieved17:
+    title: Dataretrieved17
     example:
       success: true
       error: null
@@ -21040,14 +19982,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data43'
+        $ref: '#/definitions/Data39'
     required:
       - success
       - error
       - message
       - data
-  Data43:
-    title: Data43
+  Data39:
+    title: Data39
     example:
       status_aktif: Aktif
     type: object
@@ -21133,8 +20075,8 @@ definitions:
           type: string
     required:
       - status_aktif
-  Dataretrieved24:
-    title: Dataretrieved24
+  Dataretrieved18:
+    title: Dataretrieved18
     example:
       success: true
       error: null
@@ -21215,14 +20157,14 @@ definitions:
       data:
         type: array
         items:
-          $ref: '#/definitions/Data44'
+          $ref: '#/definitions/Data40'
     required:
       - success
       - error
       - message
       - data
-  Data44:
-    title: Data44
+  Data40:
+    title: Data40
     example:
       id: 1
       slug: tidak-pernah-diangkat
@@ -21260,8 +20202,8 @@ definitions:
       - created_at
       - updated_at
       - deleted_at
-  Dataretrieved25:
-    title: Dataretrieved25
+  Dataretrieved19:
+    title: Dataretrieved19
     example:
       success: true
       error: null
@@ -21284,14 +20226,14 @@ definitions:
       data:
         type: array
         items:
-          $ref: '#/definitions/Data45'
+          $ref: '#/definitions/Data41'
     required:
       - success
       - error
       - message
       - data
-  Data45:
-    title: Data45
+  Data41:
+    title: Data41
     example:
       id: 1
       slug: sumber
@@ -21321,8 +20263,8 @@ definitions:
       - created_at
       - updated_at
       - deleted_at
-  Dataretrieved26:
-    title: Dataretrieved26
+  Dataretrieved20:
+    title: Dataretrieved20
     example:
       success: true
       error: null
@@ -21642,14 +20584,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data47'
+        $ref: '#/definitions/Data43'
     required:
       - success
       - error
       - message
       - data
-  Data47:
-    title: Data47
+  Data43:
+    title: Data43
     example:
       id_klien: '8'
       id_proyek_primary: null
@@ -21766,14 +20708,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data48'
+        $ref: '#/definitions/Data44'
     required:
       - success
       - error
       - message
       - data
-  Data48:
-    title: Data48
+  Data44:
+    title: Data44
     example:
       id_klien: '8'
       id_proyek_primary: null
@@ -22320,8 +21262,474 @@ definitions:
       - file
       - line
       - trace
-  Dataretrieved.28:
-    title: Dataretrieved.28
+  DataRetrieved21:
+    title: DataRetrieved21
+    example:
+      success: true
+      error: null
+      message: Data retrieved.
+      data:
+        klien:
+          - slug: andre
+            nama_klien: Andre
+            sales_id: '25'
+            sales_type: Sales Agent
+            telepone: '+62893211939213'
+            email: Andre@gmail.com
+            catatan: null
+            nama_bank: B.P.D. JAWA TENGAH
+            nomor_rekening: '454353543543'
+            created_at: '2023-11-29T03:24:54.000000Z'
+            updated_at: '2023-12-11T04:36:52.000000Z'
+            id: 41
+            is_verified: 1
+            kode_otp: null
+        proyek_primary:
+          - id: 70
+            slug: rusun-bambu
+            status_unit: Jual
+            nama_proyek: Rusun Bambu
+            harga_awal: 0
+            nama_developer: Ciputra Group
+            nama_tipe_bangunan: Rumah Susun
+            jumlah_unit: 8
+        secondary_unit:
+          - id: 73
+            slug: town-house-ciputat
+            harga_unit: 0
+            status_unit: Sewa
+            nama_unit: Town House Ciputat
+            nama_tipe_bangunan: Town House
+        status:
+          - id: 1
+            slug: tidak-pernah-diangkat
+            status: Tidak Pernah Diangkat
+            kategori_status: Dropped
+            icon: dropped-icon.png
+            created_at: '2023-07-31T03:55:36.000000Z'
+            updated_at: '2023-07-31T03:55:36.000000Z'
+            deleted_at: null
+          - id: 2
+            slug: nomor-diblokir
+            status: Nomor Diblokir
+            kategori_status: Dropped
+            icon: dropped-icon.png
+            created_at: '2023-07-31T03:56:00.000000Z'
+            updated_at: '2023-07-31T03:56:00.000000Z'
+            deleted_at: null
+          - id: 3
+            slug: batal-beli-rumah
+            status: Batal Beli Rumah
+            kategori_status: Dropped
+            icon: dropped-icon.png
+            created_at: '2023-07-31T03:56:27.000000Z'
+            updated_at: '2023-07-31T03:56:27.000000Z'
+            deleted_at: null
+          - id: 4
+            slug: kpr-ditolak
+            status: KPR Ditolak
+            kategori_status: Dropped
+            icon: dropped-icon.png
+            created_at: '2023-07-31T03:56:45.000000Z'
+            updated_at: '2023-07-31T03:56:45.000000Z'
+            deleted_at: null
+          - id: 5
+            slug: di-luar-kota
+            status: Di Luar Kota
+            kategori_status: Pending First Action
+            icon: pending-icon.png
+            created_at: '2023-07-31T04:17:47.000000Z'
+            updated_at: '2023-07-31T04:17:47.000000Z'
+            deleted_at: null
+          - id: 6
+            slug: keadaan-berduka
+            status: Keadaan Berduka
+            kategori_status: Pending First Action
+            icon: pending-icon.png
+            created_at: '2023-07-31T04:18:08.000000Z'
+            updated_at: '2023-07-31T04:18:08.000000Z'
+            deleted_at: null
+          - id: 7
+            slug: butuh-waktu-lebih
+            status: Butuh Waktu Lebih
+            kategori_status: Pending First Action
+            icon: pending-icon.png
+            created_at: '2023-07-31T04:18:37.000000Z'
+            updated_at: '2023-07-31T04:18:37.000000Z'
+            deleted_at: null
+          - id: 8
+            slug: dana-belum-terkumpul
+            status: Dana Belum Terkumpul
+            kategori_status: Pending First Action
+            icon: pending-icon.png
+            created_at: '2023-07-31T04:19:14.000000Z'
+            updated_at: '2023-10-17T06:54:53.000000Z'
+            deleted_at: null
+        sumber:
+          - id: 1
+            slug: sumber
+            sumber: Website Stellar
+            created_at: '2023-08-09T02:40:31.000000Z'
+            updated_at: '2023-09-17T22:39:30.000000Z'
+            deleted_at: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data45'
+    required:
+      - success
+      - error
+      - message
+      - data
+  Data45:
+    title: Data45
+    example:
+      klien:
+        - slug: andre
+          nama_klien: Andre
+          sales_id: '25'
+          sales_type: Sales Agent
+          telepone: '+62893211939213'
+          email: Andre@gmail.com
+          catatan: null
+          nama_bank: B.P.D. JAWA TENGAH
+          nomor_rekening: '454353543543'
+          created_at: '2023-11-29T03:24:54.000000Z'
+          updated_at: '2023-12-11T04:36:52.000000Z'
+          id: 41
+          is_verified: 1
+          kode_otp: null
+      proyek_primary:
+        - id: 70
+          slug: rusun-bambu
+          status_unit: Jual
+          nama_proyek: Rusun Bambu
+          harga_awal: 0
+          nama_developer: Ciputra Group
+          nama_tipe_bangunan: Rumah Susun
+          jumlah_unit: 8
+      secondary_unit:
+        - id: 73
+          slug: town-house-ciputat
+          harga_unit: 0
+          status_unit: Sewa
+          nama_unit: Town House Ciputat
+          nama_tipe_bangunan: Town House
+      status:
+        - id: 1
+          slug: tidak-pernah-diangkat
+          status: Tidak Pernah Diangkat
+          kategori_status: Dropped
+          icon: dropped-icon.png
+          created_at: '2023-07-31T03:55:36.000000Z'
+          updated_at: '2023-07-31T03:55:36.000000Z'
+          deleted_at: null
+        - id: 2
+          slug: nomor-diblokir
+          status: Nomor Diblokir
+          kategori_status: Dropped
+          icon: dropped-icon.png
+          created_at: '2023-07-31T03:56:00.000000Z'
+          updated_at: '2023-07-31T03:56:00.000000Z'
+          deleted_at: null
+        - id: 3
+          slug: batal-beli-rumah
+          status: Batal Beli Rumah
+          kategori_status: Dropped
+          icon: dropped-icon.png
+          created_at: '2023-07-31T03:56:27.000000Z'
+          updated_at: '2023-07-31T03:56:27.000000Z'
+          deleted_at: null
+        - id: 4
+          slug: kpr-ditolak
+          status: KPR Ditolak
+          kategori_status: Dropped
+          icon: dropped-icon.png
+          created_at: '2023-07-31T03:56:45.000000Z'
+          updated_at: '2023-07-31T03:56:45.000000Z'
+          deleted_at: null
+        - id: 5
+          slug: di-luar-kota
+          status: Di Luar Kota
+          kategori_status: Pending First Action
+          icon: pending-icon.png
+          created_at: '2023-07-31T04:17:47.000000Z'
+          updated_at: '2023-07-31T04:17:47.000000Z'
+          deleted_at: null
+        - id: 6
+          slug: keadaan-berduka
+          status: Keadaan Berduka
+          kategori_status: Pending First Action
+          icon: pending-icon.png
+          created_at: '2023-07-31T04:18:08.000000Z'
+          updated_at: '2023-07-31T04:18:08.000000Z'
+          deleted_at: null
+        - id: 7
+          slug: butuh-waktu-lebih
+          status: Butuh Waktu Lebih
+          kategori_status: Pending First Action
+          icon: pending-icon.png
+          created_at: '2023-07-31T04:18:37.000000Z'
+          updated_at: '2023-07-31T04:18:37.000000Z'
+          deleted_at: null
+        - id: 8
+          slug: dana-belum-terkumpul
+          status: Dana Belum Terkumpul
+          kategori_status: Pending First Action
+          icon: pending-icon.png
+          created_at: '2023-07-31T04:19:14.000000Z'
+          updated_at: '2023-10-17T06:54:53.000000Z'
+          deleted_at: null
+      sumber:
+        - id: 1
+          slug: sumber
+          sumber: Website Stellar
+          created_at: '2023-08-09T02:40:31.000000Z'
+          updated_at: '2023-09-17T22:39:30.000000Z'
+          deleted_at: null
+    type: object
+    properties:
+      klien:
+        type: array
+        items:
+          $ref: '#/definitions/Klien'
+      proyek_primary:
+        type: array
+        items:
+          $ref: '#/definitions/ProyekPrimary1'
+      secondary_unit:
+        type: array
+        items:
+          $ref: '#/definitions/SecondaryUnit'
+      status:
+        type: array
+        items:
+          $ref: '#/definitions/Status'
+      sumber:
+        type: array
+        items:
+          $ref: '#/definitions/Sumber'
+    required:
+      - klien
+      - proyek_primary
+      - secondary_unit
+      - status
+      - sumber
+  Klien:
+    title: Klien
+    example:
+      slug: andre
+      nama_klien: Andre
+      sales_id: '25'
+      sales_type: Sales Agent
+      telepone: '+62893211939213'
+      email: Andre@gmail.com
+      catatan: null
+      nama_bank: B.P.D. JAWA TENGAH
+      nomor_rekening: '454353543543'
+      created_at: '2023-11-29T03:24:54.000000Z'
+      updated_at: '2023-12-11T04:36:52.000000Z'
+      id: 41
+      is_verified: 1
+      kode_otp: null
+    type: object
+    properties:
+      slug:
+        type: string
+      nama_klien:
+        type: string
+      sales_id:
+        type: string
+      sales_type:
+        type: string
+      telepone:
+        type: string
+      email:
+        type: string
+      catatan:
+        type: string
+      nama_bank:
+        type: string
+      nomor_rekening:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      id:
+        type: integer
+        format: int32
+      is_verified:
+        type: integer
+        format: int32
+      kode_otp:
+        type: string
+    required:
+      - slug
+      - nama_klien
+      - sales_id
+      - sales_type
+      - telepone
+      - email
+      - catatan
+      - nama_bank
+      - nomor_rekening
+      - created_at
+      - updated_at
+      - id
+      - is_verified
+      - kode_otp
+  ProyekPrimary1:
+    title: ProyekPrimary1
+    example:
+      id: 70
+      slug: rusun-bambu
+      status_unit: Jual
+      nama_proyek: Rusun Bambu
+      harga_awal: 0
+      nama_developer: Ciputra Group
+      nama_tipe_bangunan: Rumah Susun
+      jumlah_unit: 8
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      slug:
+        type: string
+      status_unit:
+        type: string
+      nama_proyek:
+        type: string
+      harga_awal:
+        type: integer
+        format: int32
+      nama_developer:
+        type: string
+      nama_tipe_bangunan:
+        type: string
+      jumlah_unit:
+        type: integer
+        format: int32
+    required:
+      - id
+      - slug
+      - status_unit
+      - nama_proyek
+      - harga_awal
+      - nama_developer
+      - nama_tipe_bangunan
+      - jumlah_unit
+  SecondaryUnit:
+    title: SecondaryUnit
+    example:
+      id: 73
+      slug: town-house-ciputat
+      harga_unit: 0
+      status_unit: Sewa
+      nama_unit: Town House Ciputat
+      nama_tipe_bangunan: Town House
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      slug:
+        type: string
+      harga_unit:
+        type: integer
+        format: int32
+      status_unit:
+        type: string
+      nama_unit:
+        type: string
+      nama_tipe_bangunan:
+        type: string
+    required:
+      - id
+      - slug
+      - harga_unit
+      - status_unit
+      - nama_unit
+      - nama_tipe_bangunan
+  Status:
+    title: Status
+    example:
+      id: 1
+      slug: tidak-pernah-diangkat
+      status: Tidak Pernah Diangkat
+      kategori_status: Dropped
+      icon: dropped-icon.png
+      created_at: '2023-07-31T03:55:36.000000Z'
+      updated_at: '2023-07-31T03:55:36.000000Z'
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      slug:
+        type: string
+      status:
+        type: string
+      kategori_status:
+        type: string
+      icon:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+    required:
+      - id
+      - slug
+      - status
+      - kategori_status
+      - icon
+      - created_at
+      - updated_at
+      - deleted_at
+  Sumber:
+    title: Sumber
+    example:
+      id: 1
+      slug: sumber
+      sumber: Website Stellar
+      created_at: '2023-08-09T02:40:31.000000Z'
+      updated_at: '2023-09-17T22:39:30.000000Z'
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      slug:
+        type: string
+      sumber:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+    required:
+      - id
+      - slug
+      - sumber
+      - created_at
+      - updated_at
+      - deleted_at
+  Dataretrieved.23:
+    title: Dataretrieved.23
     example:
       success: true
       error: null
@@ -22360,14 +21768,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data50'
+        $ref: '#/definitions/Data47'
     required:
       - success
       - error
       - message
       - data
-  Data50:
-    title: Data50
+  Data47:
+    title: Data47
     example:
       id: 1
       slug: soft-launching
@@ -22757,14 +22165,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data51'
+        $ref: '#/definitions/Data48'
     required:
       - success
       - error
       - message
       - data
-  Data51:
-    title: Data51
+  Data48:
+    title: Data48
     example:
       event_id: '1'
       participant_id: 12
@@ -22869,14 +22277,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data52'
+        $ref: '#/definitions/Data49'
     required:
       - success
       - error
       - message
       - data
-  Data52:
-    title: Data52
+  Data49:
+    title: Data49
     example:
       id: 2
       slug: 1-2
@@ -22929,8 +22337,8 @@ definitions:
       - success
       - error
       - message
-  Dataretrieved.29:
-    title: Dataretrieved.29
+  Dataretrieved.24:
+    title: Dataretrieved.24
     example:
       success: true
       error: null
@@ -23370,14 +22778,14 @@ definitions:
       message:
         type: string
       data:
-        $ref: '#/definitions/Data53'
+        $ref: '#/definitions/Data50'
     required:
       - success
       - error
       - message
       - data
-  Data53:
-    title: Data53
+  Data50:
+    title: Data50
     example:
       tipe_bangunan:
         - value: 6
@@ -23943,7 +23351,6 @@ tags:
   - name: Proyek Primary
   - name: Secondary Unit
   - name: Listing
-  - name: Transaksi
   - name: Province
   - name: Sales
   - name: Sales Monitoring
